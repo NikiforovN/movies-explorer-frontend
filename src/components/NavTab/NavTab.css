@@ -29,3 +29,12 @@
   line-height: 16px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 410px) {
+  .navtab__link {
+    font-size: 11px;
+  }
+  .navtab__list-item {
+    margin-right: 24px;
+  }
+}

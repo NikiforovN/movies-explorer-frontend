@@ -64,3 +64,16 @@
     max-width: 27px;
 }
 }
+
+@media screen and (max-width:410px) {
+  .portfolio {
+    padding: 0 14px 70px;
+  }
+  .portfolio__link-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .portfolio__link-image {
+    max-width: 18px;
+}
+}

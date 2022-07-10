@@ -23,6 +23,7 @@
 }
 
 .about-project__subtitle {
+  max-width: 550px;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
@@ -31,6 +32,7 @@
 }
 
 .about-project__box-content {
+  max-width: 550px;
   margin: 0;
   font-weight: 400;
   font-size: 14px;
@@ -66,4 +68,19 @@
   color: #a0a0a0;
   padding: 0;
   max-height: 17px;
+}
+
+@media screen and (max-width:769px) {
+
+  .about-project{
+    padding: 90px 50px;
+  }
+  
+  .about-project__subtitle{
+    max-width: 319px;
+  }
+
+  .about-project__box-content{
+    max-width: 319px;
+  }
 }

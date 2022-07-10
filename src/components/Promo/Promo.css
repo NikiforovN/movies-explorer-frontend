@@ -24,3 +24,12 @@
   letter-spacing: -0.04em;
   color: #ffffff;
 }
+
+@media screen and (max-width:769px) {
+  .promo {
+    padding: 224px 0 240px;
+  }
+  .promo__title {
+    top: 326px;
+  }
+}

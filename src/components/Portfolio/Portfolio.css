@@ -50,3 +50,17 @@
 .portfolio__link-image {
     max-width: 29px;
 }
+
+
+@media screen and (max-width:769px) {
+  .portfolio {
+    padding: 0 50px 90px;
+  }
+  .portfolio__link-title {
+    font-size: 20px;
+    line-height: 50px;
+  }
+  .portfolio__link-image {
+    max-width: 27px;
+}
+}

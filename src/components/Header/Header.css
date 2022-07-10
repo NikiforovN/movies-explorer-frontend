@@ -41,3 +41,11 @@
     padding: 18px 30px;
   }
 }
+@media screen and (max-width:769px) {
+  .header {
+    padding: 18px 14px;
+  }
+  .header__button_signin{
+    margin-left: 26px;
+  }
+}

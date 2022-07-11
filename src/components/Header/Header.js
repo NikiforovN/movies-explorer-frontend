@@ -22,7 +22,6 @@ export default function Header() {
                         </Link>
                     </div>
                 </header>
-
             </Route>
         </Switch>
 

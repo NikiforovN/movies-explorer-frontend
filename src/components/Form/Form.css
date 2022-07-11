@@ -14,7 +14,7 @@
   margin-bottom: 20px;
 }
 
-.form__input-label:last-of-type{
+.form__input-label:last-of-type {
   margin-bottom: 0;
 }
 
@@ -27,6 +27,8 @@
   border-radius: 8px;
   border: none;
   padding: 15px;
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .form__submit-button {

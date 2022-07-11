@@ -57,5 +57,10 @@
   .signup {
     padding: 56px 0 30px;
   }
-
+  .signup__logo {
+    align-self: center;
+  }
+  .signup__title {
+    align-self: center;
+  }
 }

@@ -38,6 +38,7 @@ export default function Form() {
                         required
                     />
                     <span class="form__input-error">Что-то пошло не так...</span>
+                    <button type='submit' className='form__submit-button'>Зарегистрироваться</button>
                 </label>
             </Route>
             <Route exact path='/signin'>
@@ -64,8 +65,8 @@ export default function Form() {
                     />
                     <span class="form__input-error">Что-то пошло не так...</span>
                 </label>
+                <button type='submit' className='form__submit-button'>Войти</button>
             </Route>
-            <button type='submit' className='form__submit-button'>Войти</button>
         </form>
     )
 }

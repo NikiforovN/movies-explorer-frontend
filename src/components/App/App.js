@@ -4,17 +4,22 @@ import './App.css';
 import Header from '../Header/Header'
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
   return (
     <div className='app'>
       <Header />
       <Switch>
+        <Route exact path='/notfound'>
+          <NotFound />
+        </Route>
         <Route exact path='/'>
           <Main />
         </Route>
+        <Footer />
       </Switch>
-      <Footer />
+      
     </div>
   );
 }

@@ -7,7 +7,7 @@
   padding: 18px 70px;
 }
 
-.header__logo{
+.header__logo {
   cursor: pointer;
 }
 
@@ -36,16 +36,66 @@
   cursor: pointer;
 }
 
-@media screen and (max-width:769px) {
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.header__background_profile {
+  background: #fff;
+}
+
+.header__button_films {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0;
+}
+
+.header__button_saved-films {
+  font-weight: 400;
+}
+
+.header__container-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.header__account {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.header__account-logo {
+  padding: 8px 7.25px;
+  max-width: 11.5px;
+}
+
+.header__account-box {
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 769px) {
   .header {
     padding: 18px 30px;
   }
+  .header__container{
+    display: none;
+  }
 }
-@media screen and (max-width:769px) {
+@media screen and (max-width: 430px) {
   .header {
     padding: 18px 14px;
   }
-  .header__button_signin{
+  .header__button_signin {
     margin-left: 26px;
   }
 }

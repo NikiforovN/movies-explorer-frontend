@@ -1,8 +1,9 @@
 import React from 'react'
 import './Profile.css'
 
-export default function Profile() {
+export default function Profile(props) {
   return (
+    <>
     <div className='profile'>
         <h2 className='profile__title'>
             Привет, Медвед!
@@ -20,5 +21,6 @@ export default function Profile() {
         <button className='profile__edit-button'>Редактировать</button>
         <button className='profile__signout-button'>Выйти из аккаунта</button>
     </div>
+    </>
   )
 }

@@ -11,30 +11,7 @@
   cursor: pointer;
 }
 
-.header__button_signup {
-  max-width: 77px;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 0;
-  cursor: pointer;
-}
 
-.header__button_signin {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  max-width: 76px;
-  background: #2be080;
-  border-radius: 3px;
-  border: none;
-  padding: 8px 20px;
-  margin-left: 30px;
-  cursor: pointer;
-}
 
 .header__container {
   display: flex;
@@ -90,12 +67,12 @@
   .header__container{
     display: none;
   }
+  .header__navbar{
+    display: none;
+  }
 }
 @media screen and (max-width: 430px) {
   .header {
     padding: 18px 14px;
-  }
-  .header__button_signin {
-    margin-left: 26px;
   }
 }

@@ -37,7 +37,7 @@ export default function Form() {
                         placeholder='Введите пароль'
                         required
                     />
-                    <span class="form__input-error">Что-то пошло не так...</span>
+                    <span className="form__input-error">Что-то пошло не так...</span>
                     <button type='submit' className='form__submit-button'>Зарегистрироваться</button>
                 </label>
             </Route>

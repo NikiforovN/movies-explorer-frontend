@@ -1,15 +1,10 @@
 import React from 'react'
 import './BurgerMenu.css'
 
-export default function BurgerMenu() {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-    function toggleBurgerMenu() {
-        setIsMenuOpen(!isMenuOpen)
-    }
+export default function BurgerMenu(props) {
 
     return (
-        <div className={`burger-menu ${isMenuOpen && 'burger-menu_active'}`} onClick={toggleBurgerMenu} >
+        <div className={`burger-menu ${props.isMenuOpen && 'burger-menu_active'}`} onClick={props.toggleBurgerMenu} >
             <span></span>
             <span></span>
             <span></span>

@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  justify-content: center;
+  width: 89%;
+  background: #f9f9f9;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border: none;
+  align-self: center;
+  cursor: pointer;
+  margin-bottom: 89px;
+}
+
+@media screen and (max-width: 769px) {
+  .button {
+    width: 92%;
+  }
+}

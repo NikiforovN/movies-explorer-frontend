@@ -8,14 +8,30 @@ import NotFound from '../NotFound/NotFound';
 import SignUp from '../SignUp/SignUp';
 import SignIn from '../SignIn/SignIn';
 import Profile from '../Profile/Profile';
+import Menu from '../Menu/Menu';
+import Movies from '../Movies/Movies';
 
 function App() {
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  function toggleBurgerMenu() {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+
   return (
-    <div className='app'>
-      <Header />
+    <section className='app'>
+      <Header
+        isMenuOpen={isMenuOpen}
+        toggleBurgerMenu={toggleBurgerMenu}
+      />
+      <Menu isMenuOpen={isMenuOpen} />
+
       <Switch>
         <Route exact path='/'>
           <Main />
+          <Footer />
         </Route>
         <Route exact path='/notfound'>
           <NotFound />
@@ -27,11 +43,15 @@ function App() {
           <SignIn />
         </Route>
         <Route exact path='/profile'>
-          <Profile />
+          <Profile isMenuOpen={isMenuOpen} />
+        </Route>
+
+        <Route path='/movies'>
+          <Movies />
+          <Footer />
         </Route>
       </Switch>
-      <Footer />
-    </div>
+    </section>
   );
 }
 

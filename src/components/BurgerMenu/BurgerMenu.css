@@ -6,6 +6,8 @@
   overflow: hidden;
   transition: 0.5s;
   display: none;
+  z-index: 20;
+  justify-self: flex-end;
 }
 .burger-menu span {
   width: 28px;

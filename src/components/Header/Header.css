@@ -9,9 +9,12 @@
 
 .header__logo {
   cursor: pointer;
+  transition: .4s;
 }
 
-
+.header__logo:hover{
+  opacity: .5;
+}
 
 .header__container {
   display: flex;
@@ -23,19 +26,6 @@
   background: #fff;
 }
 
-.header__button_films {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  padding: 0;
-}
-
-.header__button_saved-films {
-  font-weight: 400;
-}
 
 .header__container-item {
   display: flex;
@@ -43,22 +33,6 @@
   align-items: center;
 }
 
-.header__account {
-  margin: 0;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-}
-
-.header__account-logo {
-  padding: 8px 7.25px;
-  max-width: 11.5px;
-}
-
-.header__account-box {
-  background: #f9f9f9;
-  border-radius: 4px;
-}
 
 @media screen and (max-width: 769px) {
   .header {

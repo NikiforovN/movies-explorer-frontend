@@ -3,7 +3,7 @@ import './AboutMe.css'
 import myPhoto from '../../images/my-photo.jpg'
 export default function AboutMe() {
   return (
-    <div className='about-me'>
+    <section className='about-me' id={'about-me'}>
       <h2 className='about-me__title'>Студент</h2>
       <div className='about-me__container'>
         <div className='about-me__box'>
@@ -16,15 +16,15 @@ export default function AboutMe() {
           </p>
           <ul className='about-me__list'>
             <li className='about-me__list-item'>
-              <a className='about-me__link' href='https://t.me/nikiforovnd' target='_blank'>Telegram</a>
+              <a rel='noreferrer' className='about-me__link' href='https://t.me/nikiforovnd' target='_blank'>Telegram</a>
             </li>
             <li className='about-me__list-item'>
-              <a className='about-me__link' href='https://github.com/NikiforovN' target='_blank'>Github</a>
+              <a rel='noreferrer' className='about-me__link' href='https://github.com/NikiforovN' target='_blank'>Github</a>
             </li>
           </ul>
         </div>
         <img className='about-me__image' src={myPhoto} alt='Фотокарточка' />
       </div>
-    </div>
+    </section>
   )
 }

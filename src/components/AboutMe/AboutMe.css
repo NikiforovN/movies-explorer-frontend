@@ -73,6 +73,11 @@
   font-size: 14px;
   line-height: 17px;
   text-decoration: none;
+  transition: 0.4s;
+}
+
+.about-me__link:hover {
+  opacity: 0.5;
 }
 
 .about-me__link:visited {

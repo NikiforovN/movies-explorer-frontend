@@ -33,6 +33,12 @@
   border: none;
   box-sizing: border-box;
   padding: auto;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.movie__like-button:hover {
+  opacity: 0.5;
 }
 
 .movie__duration {

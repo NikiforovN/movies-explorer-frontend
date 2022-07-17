@@ -9,13 +9,13 @@ export default function Footer() {
                 <p className='footer__copyright'>&copy;2022</p>
                 <ul className='footer__list'>
                     <li className='footer__list-item'>
-                        <a className='footer__link' href='https://practicum.yandex.ru' target='_blank'>Яндекс.Практикум</a>
+                        <a className='footer__link' rel='noreferrer' href='https://practicum.yandex.ru' target='_blank'>Яндекс.Практикум</a>
                     </li>
                     <li className='footer__list-item'>
-                        <a className='footer__link' href='https://github.com/NikiforovN' target='_blank'>Github</a>
+                        <a className='footer__link' rel='noreferrer' href='https://github.com/NikiforovN' target='_blank'>Github</a>
                     </li>
                     <li className='footer__list-item'>
-                        <a className='footer__link' href='https://t.me/nikiforovnd' target='_blank'>Telegram</a>
+                        <a className='footer__link' rel='noreferrer' href='https://t.me/nikiforovnd' target='_blank'>Telegram</a>
                     </li>
                 </ul>
             </div>

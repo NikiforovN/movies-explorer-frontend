@@ -10,6 +10,7 @@ import SignIn from '../SignIn/SignIn';
 import Profile from '../Profile/Profile';
 import Menu from '../Menu/Menu';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
 
@@ -29,20 +30,21 @@ function App() {
       <Menu isMenuOpen={isMenuOpen} />
 
       <Switch>
+
         <Route exact path='/'>
           <Main />
           <Footer />
         </Route>
-        <Route exact path='/notfound'>
-          <NotFound />
-        </Route>
-        <Route exact path='/signup'>
+
+        <Route path='/signup'>
           <SignUp />
         </Route>
-        <Route exact path='/signin'>
+
+        <Route path='/signin'>
           <SignIn />
         </Route>
-        <Route exact path='/profile'>
+
+        <Route path='/profile'>
           <Profile isMenuOpen={isMenuOpen} />
         </Route>
 
@@ -50,6 +52,16 @@ function App() {
           <Movies />
           <Footer />
         </Route>
+
+        <Route path='/saved-movies'>
+          <SavedMovies />
+          <Footer />
+        </Route>
+
+        <Route path='*'>
+          <NotFound />
+        </Route>
+        
       </Switch>
     </section>
   );

@@ -11,6 +11,10 @@
 
 .signin__logo {
   max-width: 38px;
+  transition: 0.4s;
+}
+.signin__logo:hover {
+  opacity: 0.5;
 }
 
 .signin__title {
@@ -42,9 +46,14 @@
   line-height: 17px;
   color: #2be080;
   text-decoration: none;
+  transition: 0.4s;
 }
 .signin__link:visited {
   color: #2be080;
+}
+
+.signin__link:hover {
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 769px) {

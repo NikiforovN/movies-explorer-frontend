@@ -6,7 +6,7 @@ import logo from '../../images/header__logo.svg'
 
 export default function SignUp() {
     return (
-        <div className='signup'>
+        <section className='signup'>
             <div className='signup__container'>
             <Link to='/' className='signup__logo'>
             <img src={logo} alt='Логотип' />
@@ -20,6 +20,6 @@ export default function SignUp() {
                 </Link>
             </div>
             </div>
-        </div>
+        </section>
     )
 }

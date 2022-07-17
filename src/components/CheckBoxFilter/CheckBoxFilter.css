@@ -8,6 +8,11 @@
   width: 36px;
   height: 20px;
   cursor: pointer;
+  transition: .4s;
+}
+
+.checkbox__label:hover{
+  transform:scale(1.1) ;
 }
 
 .checkbox__title {

@@ -4,6 +4,14 @@
   gap: 50px;
 }
 
+.navbar__buttons-hover{
+  transition: .4s;
+}
+
+.navbar__buttons-hover:hover{
+  opacity: .5;
+}
+
 .navbar__container-item {
   display: flex;
   gap: 20px;

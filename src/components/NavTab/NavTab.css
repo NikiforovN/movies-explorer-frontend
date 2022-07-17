@@ -28,8 +28,16 @@
   font-size: 13px;
   line-height: 16px;
   cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  transition: 0.4s;
 }
-
+.navtab__link:visited {
+  color: #000;
+}
+.navtab__link:hover {
+  opacity: 0.5;
+}
 @media screen and (max-width: 410px) {
   .navtab__link {
     font-size: 11px;

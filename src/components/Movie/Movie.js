@@ -6,7 +6,7 @@ import dislike from '../../images/icon__dislike.svg'
 
 export default function Movie() {
     const [isLiked, setIsliked] = React.useState(false);
-    function handleLike(){
+    function handleLike() {
         setIsliked(!isLiked)
     }
     return (
@@ -14,7 +14,7 @@ export default function Movie() {
             <img alt='Карточка' className='movie__image' src={movieImage} />
             <div className='movie__container'>
                 <h2 className='movie__title'>33 слова о дизайне</h2>
-                <button className='movie__like-button'><img src={isLiked ? like : dislike} alt='Сердечко' onClick={handleLike}/></button>
+                <button className='movie__like-button' onClick={handleLike}><img src={isLiked ? like : dislike} alt='Сердечко' /></button>
             </div>
             <p className='movie__duration'>1ч42м</p>
         </li>

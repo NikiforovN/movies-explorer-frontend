@@ -9,10 +9,10 @@ export default function Navbar() {
             <Route exact path='/'>
                 <nav className='navbar__container'>
                     <Link to='/signup'>
-                        <button className='navbar__button_signup navbar__buttons-hover'>Регистрация</button>
+                        <button type='button' className='navbar__button_signup navbar__buttons-hover'>Регистрация</button>
                     </Link>
                     <Link to='/signin'>
-                        <button className='navbar__button_signin navbar__buttons-hover'>Войти</button>
+                        <button type='button' className='navbar__button_signin navbar__buttons-hover'>Войти</button>
                     </Link>
                 </nav>
             </Route>

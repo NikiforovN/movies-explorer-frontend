@@ -17,8 +17,8 @@ export default function Profile() {
                     <p className='profile__box-item-subtitle'>pochta@yandex.ru</p>
                 </div>
             </div>
-            <button className='profile__edit-button profile__buttons-hover'>Редактировать</button>
-            <button className='profile__signout-button profile__buttons-hover'>Выйти из аккаунта</button>
+            <button type='button' className='profile__edit-button profile__buttons-hover'>Редактировать</button>
+            <button type='button' className='profile__signout-button profile__buttons-hover'>Выйти из аккаунта</button>
         </section>
     )
 }

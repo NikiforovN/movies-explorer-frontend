@@ -93,6 +93,7 @@
 @media screen and (max-width: 410px) {
   .techs {
     padding: 70px 18px;
+    background: #fff;
   }
   .techs__box-title {
     font-size: 30px;

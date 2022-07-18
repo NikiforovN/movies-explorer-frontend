@@ -8,17 +8,17 @@ export default function SignUp() {
     return (
         <section className='signup'>
             <div className='signup__container'>
-            <Link to='/' className='signup__logo'>
-            <img src={logo} alt='Логотип' />
-            </Link>
-            <h1 className='signup__title'>Добро пожаловать!</h1>
-            <Form />
-            <div className='signup__box'>
-                <p className='signup__text'>Уже зарегистрированы?</p>
-                <Link className='signup__link' to='/signin'>
-                    Войти
+                <Link to='/' className='signup__logo'>
+                    <img src={logo} alt='Логотип' />
                 </Link>
-            </div>
+                <h1 className='signup__title'>Добро пожаловать!</h1>
+                <Form />
+                <div className='signup__box'>
+                    <p className='signup__text'>Уже зарегистрированы?</p>
+                    <Link className='signup__link' to='/signin'>
+                        Войти
+                    </Link>
+                </div>
             </div>
         </section>
     )

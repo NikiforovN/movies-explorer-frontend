@@ -15,11 +15,13 @@
   border-top: 1px solid #000;
   justify-content: space-between;
   padding: 70px 0 110px;
+  gap: 40px;
 }
 
 .about-project__box-item {
   display: flex;
   flex-direction: column;
+  max-width: 550px;
 }
 
 .about-project__subtitle {
@@ -77,6 +79,9 @@
 
   .about-project__subtitle {
     max-width: 319px;
+  }
+  .about-project__box{
+    gap: 30px;
   }
 
   .about-project__box-content {

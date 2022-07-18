@@ -3,6 +3,6 @@ import './ButtonMore.css'
 
 export default function ButtonMore() {
   return (
-    <button className='button'>Ещё</button>
+    <button type='button' className='button'>Ещё</button>
   )
 }

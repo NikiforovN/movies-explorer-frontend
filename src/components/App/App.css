@@ -1,0 +1,9 @@
+.app {
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
+}
+

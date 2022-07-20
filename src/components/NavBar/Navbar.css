@@ -1,0 +1,114 @@
+.navbar__container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.navbar__buttons-hover{
+  transition: .4s;
+}
+
+.navbar__buttons-hover:hover{
+  opacity: .5;
+}
+
+.navbar__container-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar__button_signup {
+  max-width: 77px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navbar__button_signin {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  max-width: 76px;
+  background: #2be080;
+  border-radius: 3px;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.navbar__button_films {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar__button_films_display-none{
+  display: none;
+}
+
+.navbar__button_saved-films {
+  font-weight: 400;
+}
+
+.navbar__account {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000;
+}
+
+.navbar__account-logo {
+  padding: 8px 7.25px;
+  max-width: 11.5px;
+}
+
+.navbar__account-box {
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.navbar__button_active {
+  border-bottom: 2px solid #000;
+}
+
+@media screen and (max-width: 769px) {
+  .navbar__container_tablet {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+    height: 50vh;
+
+  }
+  .navbar__container-item_tablet {
+    flex-direction: column;
+    gap: 28px;
+    justify-content: space-between;
+  }
+  .navbar__container-item_profile-link {
+    flex-direction: row;
+    gap: 17px;
+    text-decoration: none;
+  }
+  .navbar__button_films {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .navbar__button_films_display-none{
+    display: flex;
+  }
+}

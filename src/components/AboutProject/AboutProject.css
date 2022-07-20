@@ -1,0 +1,121 @@
+.about-project {
+  padding: 110px 70px;
+}
+
+.about-project__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  margin: 0 0 23px;
+}
+
+.about-project__box {
+  display: flex;
+  border-top: 1px solid #000;
+  justify-content: space-between;
+  padding: 70px 0 110px;
+  gap: 40px;
+}
+
+.about-project__box-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+}
+
+.about-project__subtitle {
+  max-width: 550px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  margin: 0 0 26px;
+}
+
+.about-project__box-content {
+  max-width: 550px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-project__graph {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 0.5fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 12px;
+}
+
+.about-project__graph-cell {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  padding: 9px 0;
+}
+
+.about-project__graph-cell_difference_first {
+  background: #2be080;
+}
+
+.about-project__graph-cell_difference_second {
+  background: #f2f2f2;
+}
+
+.about-project__graph-cell_difference_other {
+  font-weight: 500;
+  color: #a0a0a0;
+  padding: 0;
+  max-height: 17px;
+}
+
+@media screen and (max-width: 769px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__subtitle {
+    max-width: 319px;
+  }
+  .about-project__box{
+    gap: 30px;
+  }
+
+  .about-project__box-content {
+    max-width: 319px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+
+  .about-project__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    gap: 56px;
+  }
+  .about-project__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 16px;
+  }
+  .about-project__box-content {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .about-project__graph-cell {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .about-project__graph {
+    grid-row-gap: 10px;
+    grid-template-columns: 1fr 1.84fr;
+  }
+}

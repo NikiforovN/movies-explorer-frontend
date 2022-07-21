@@ -1,10 +1,23 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, useLocation } from 'react-router-dom'
+import { useFormWithValidation } from '../../utils/FormValidator';
 import './Form.css'
 
-export default function Form() {
+export default function Form(props) {
+    const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
+
+
+    React.useEffect(() => {
+        resetForm({}, {}, false);
+    }, [resetForm]);
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        props.handleSubmit(values)
+    }
     return (
-        <form className='form' method='get'>
+        <form className='form' method='get' onSubmit={handleSubmit}>
             <Route exact path='/signup'>
                 <label className='form__input-label'>
                     <span className='form_input-label-title'>Имя</span>
@@ -14,7 +27,9 @@ export default function Form() {
                         name='name'
                         placeholder='Введите ваше Имя'
                         required
+                        onChange={handleChange}
                     />
+                    <span className="form__input-error">{errors.name || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -25,7 +40,9 @@ export default function Form() {
                         name='email'
                         placeholder='Введите email'
                         required
+                        onChange={handleChange}
                     />
+                    <span className="form__input-error">{errors.email || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -36,9 +53,10 @@ export default function Form() {
                         name='password'
                         placeholder='Введите пароль'
                         required
+                        onChange={handleChange}
                     />
-                    <span className="form__input-error">Что-то пошло не так...</span>
-                    <button type='submit' className='form__submit-button'>Зарегистрироваться</button>
+                    <span className="form__input-error">{errors.password || ''}</span>
+                    <button disabled={!isValid} type='submit' className={`form__submit-button ${!isValid && 'form__submit-button-disabled'}`}>Зарегистрироваться</button>
                 </label>
             </Route>
             <Route exact path='/signin'>
@@ -51,7 +69,9 @@ export default function Form() {
                         name='email'
                         placeholder='Введите email'
                         required
+                        onChange={handleChange}
                     />
+                    <span className="form__input-error">{errors.email || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -62,10 +82,11 @@ export default function Form() {
                         name='password'
                         placeholder='Введите пароль'
                         required
+                        onChange={handleChange}
                     />
-                    <span class="form__input-error">Что-то пошло не так...</span>
+                    <span class="form__input-error">{errors.password || ''}</span>
                 </label>
-                <button type='submit' className='form__submit-button'>Войти</button>
+                <button disabled={!isValid} type='submit' className={`form__submit-button ${!isValid && 'form__submit-button-disabled'}`}>Войти</button>
             </Route>
         </form>
     )

@@ -13,7 +13,10 @@ export default function Header(props) {
                     <Link to='/'>
                         <img className='header__logo' src={headerLogo} alt='Логотип' />
                     </Link>
-                    <Navbar />
+                    <div className={`header__container ${props.isLoggedIn && 'header__container-none'}`}>
+                        <Navbar isLoggedIn={props.isLoggedIn}/>
+                    </div>
+                   { props.isLoggedIn && <BurgerMenu isMenuOpen={props.isMenuOpen} toggleBurgerMenu={props.toggleBurgerMenu} />}
                 </header>
             </Route>
             <Route exact path='/(profile|movies|saved-movies)'>
@@ -21,8 +24,8 @@ export default function Header(props) {
                     <Link to='/'>
                         <img className='header__logo' src={headerLogo} alt='Логотип' />
                     </Link>
-                    <div className='header__container'>
-                        <Navbar/>
+                    <div className={`header__container ${props.isLoggedIn && 'header__container-none'}`}>
+                        <Navbar />
                     </div>
                     <BurgerMenu isMenuOpen={props.isMenuOpen} toggleBurgerMenu={props.toggleBurgerMenu} />
                 </header>

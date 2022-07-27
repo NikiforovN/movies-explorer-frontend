@@ -13,6 +13,9 @@ export default function SignIn(props) {
         </Link>
         <h1 className='signin__title'>Рады видеть!</h1>
         <Form handleSubmit={props.handleSubmit} />
+        {
+          props.isError && <p className='signin__error'>Упс! Что-то пошло не так</p>
+        }
         <div className='signin__box'>
           <p className='signin__text'>Ещё не зарегистрированы?</p>
           <Link className='signin__link' to='/signup'>

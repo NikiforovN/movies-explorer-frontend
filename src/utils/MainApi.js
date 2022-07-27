@@ -66,7 +66,7 @@ export class MainApi {
             }),
         }).then(this._checkResponse);
     }
-    addMovie({ country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail, movieId, }) {
+    addMovie(movie) {
         return fetch(`${this._baseUrl}/movies`, {
             method: 'POST',
             headers: {
@@ -76,7 +76,17 @@ export class MainApi {
                 'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({
-                country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail, movieId,
+                country: movie.country || 'неизвестно',
+                director: movie.director,
+                duration: movie.duration.toString(),
+                year: movie.year,
+                description: movie.description,
+                image: `https://api.nomoreparties.co${movie.image.url}`,
+                trailerLink: movie.trailerLink,
+                thumbnail: `https://api.nomoreparties.co${movie.image.url}`,
+                movieId: movie.id.toString(),
+                nameRU: movie.nameRU,
+                nameEN: movie.nameEN || 'неизвестно',
             }),
         }).then(this._checkResponse);
     }

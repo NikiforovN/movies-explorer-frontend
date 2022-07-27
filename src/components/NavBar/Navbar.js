@@ -4,7 +4,6 @@ import './Navbar.css'
 import accountLogo from '../../images/header__account-logo.svg'
 
 export default function Navbar(props) {
-    console.log(props.isLoggedIn)
     return (
         <>
             <Route exact path='/'>

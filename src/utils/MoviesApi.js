@@ -6,7 +6,6 @@ export class MoviesApi {
     getMovies() {
         return fetch(`${this._baseUrl}`, {
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('jwt')}`,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },

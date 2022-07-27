@@ -13,8 +13,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { api } from '../../utils/MainApi';
 import { CurrentUser } from '../../context/CurrentUserContext';
-import { moviesApi } from '../../utils/MoviesApi';
-import { MoviesCards } from '../../context/MoviesContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
 
@@ -24,9 +23,9 @@ function App() {
     email: '',
     _id: ''
   });
-  const [movies, setMovies] = React.useState({})
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
-  const [isLoading, setIsLoading] = React.useState(false)
+  const [isSignInError, setIsSignInError] = React.useState()
+  const [isSignUpError, setIsSignUpError] = React.useState()
 
   const history = useHistory()
 
@@ -38,21 +37,20 @@ function App() {
 
   React.useEffect(() => {
     if (isLoggedIn) {
-      setIsLoading(true)
-      Promise.all([api.getProfile(), moviesApi.getMovies(), tokenCheck()])
-        .then(([userData, movies]) => {
+      Promise.all([api.getProfile(), tokenCheck()])
+        .then(([userData]) => {
           setCurrentUser(userData);
-          setMovies(movies)
+
         })
         .catch((err) => {
           console.log(err);
         })
-        .finally(() => setIsLoading(false));
-        history.push('/movies');
-        return;
+      history.push('/movies');
+      return;
     }
     history.push('/')
   }, [isLoggedIn]);
+
 
   function toggleBurgerMenu() {
     setIsMenuOpen(!isMenuOpen)
@@ -62,8 +60,9 @@ function App() {
     return api.register({ name, email, password })
       .then(() => {
         handleLogin({ email, password })
+        setIsSignUpError(false)
       })
-      .catch(err => console.log(err.message))
+      .catch(() => setIsSignUpError(true))
   }
 
   function handleLogin({ email, password }) {
@@ -75,8 +74,9 @@ function App() {
         localStorage.setItem('jwt', res.token);
         setIsLoggedIn(true)
         history.push('/profile')
+        setIsSignInError(false)
       })
-      .catch(err => console.log(err.message))
+      .catch(() => setIsSignInError(true))
   }
 
   function tokenCheck() {
@@ -118,19 +118,20 @@ function App() {
           </Route>
 
           <Route path='/signup'>
-            <SignUp handleSubmit={handleRegister} />
+            <SignUp handleSubmit={handleRegister} isError={isSignUpError} />
           </Route>
 
           <Route path='/signin'>
-            <SignIn handleSubmit={handleLogin} />
+            <SignIn handleSubmit={handleLogin} isError={isSignInError} />
           </Route>
 
-          <Route path='/profile'>
-            <Profile isMenuOpen={isMenuOpen} handleSignOut={handleSignOut} handleSubmit={handleEditProfile} />
-          </Route>
-          <MoviesCards.Provider value={movies}>
+          <ProtectedRoute path="/" isLoggedIn={isLoggedIn}>
+            <Route path='/profile'>
+              <Profile isMenuOpen={isMenuOpen} handleSignOut={handleSignOut} handleSubmit={handleEditProfile} />
+            </Route>
+
             <Route path='/movies'>
-              <Movies isLoading={isLoading} />
+              <Movies isLoggedIn={isLoggedIn} />
               <Footer />
             </Route>
 
@@ -138,7 +139,7 @@ function App() {
               <SavedMovies />
               <Footer />
             </Route>
-          </MoviesCards.Provider>
+          </ProtectedRoute>
 
           <Route path='*'>
             <NotFound />

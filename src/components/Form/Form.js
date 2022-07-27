@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, useLocation } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import { useFormWithValidation } from '../../utils/FormValidator';
 import './Form.css'
 
@@ -29,7 +29,7 @@ export default function Form(props) {
                         required
                         onChange={handleChange}
                     />
-                    <span className="form__input-error">{errors.name || ''}</span>
+                    <span className='form__input-error'>{errors.name || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -42,7 +42,7 @@ export default function Form(props) {
                         required
                         onChange={handleChange}
                     />
-                    <span className="form__input-error">{errors.email || ''}</span>
+                    <span className='form__input-error'>{errors.email || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -55,7 +55,7 @@ export default function Form(props) {
                         required
                         onChange={handleChange}
                     />
-                    <span className="form__input-error">{errors.password || ''}</span>
+                    <span className='form__input-error'>{errors.password || ''}</span>
                     <button disabled={!isValid} type='submit' className={`form__submit-button ${!isValid && 'form__submit-button-disabled'}`}>Зарегистрироваться</button>
                 </label>
             </Route>
@@ -71,7 +71,7 @@ export default function Form(props) {
                         required
                         onChange={handleChange}
                     />
-                    <span className="form__input-error">{errors.email || ''}</span>
+                    <span className='form__input-error'>{errors.email || ''}</span>
                 </label>
 
                 <label className='form__input-label'>
@@ -84,7 +84,7 @@ export default function Form(props) {
                         required
                         onChange={handleChange}
                     />
-                    <span class="form__input-error">{errors.password || ''}</span>
+                    <span className='form__input-error'>{errors.password || ''}</span>
                 </label>
                 <button disabled={!isValid} type='submit' className={`form__submit-button ${!isValid && 'form__submit-button-disabled'}`}>Войти</button>
             </Route>

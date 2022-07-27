@@ -1,8 +1,8 @@
 import React from 'react'
 import './ButtonMore.css'
 
-export default function ButtonMore() {
+export default function ButtonMore({onClick}) {
   return (
-    <button type='button' className='button'>Ещё</button>
+    <button onClick={onClick} type='button' className='button'>Ещё</button>
   )
 }

@@ -72,7 +72,6 @@ export default function SavedMovies(props) {
     console.log(filteredMovies)
   }
 
-  console.log(savedMovies)
 
   return (
     <section className='saved-movies'>

@@ -31,7 +31,6 @@ function App() {
 
   React.useEffect(() => {
     tokenCheck();
-    console.log(123)
   }, [isLoggedIn]);
 
 
@@ -80,7 +79,6 @@ function App() {
   }
 
   function tokenCheck() {
-    console.log('Запускаюсь')
     if (localStorage.getItem("jwt")) {
       setIsLoggedIn(true)
     }

@@ -97,7 +97,6 @@ export default function Movies(props) {
 
   const handleMovieLike = (movie) => {
     const isLiked = savedMovies.some(m => m.movieId === movie.id);
-    console.log(isLiked)
     const movieToDelete = savedMovies.find(m => m.movieId === movie.id)
     if (!isLiked) {
       api.addMovie(movie)

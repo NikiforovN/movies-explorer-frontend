@@ -23,7 +23,7 @@ export default function Movies(props) {
   }, []);
 
   React.useEffect(() => {
-    if (location.pathname === '/movies') {
+    if (location.pathname === '/movies' && localStorage.filteredMovies) {
       setMovies(JSON.parse(localStorage.filteredMovies))
       renderMovies()
     }

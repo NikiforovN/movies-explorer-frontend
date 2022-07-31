@@ -88,6 +88,8 @@ function App() {
 
   function handleSignOut() {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("searchRequest");
+    localStorage.removeItem('filteredMovies')
     setIsLoggedIn(false);
   }
 

@@ -13,7 +13,7 @@ export default function SearchForm(props) {
     const location = useLocation()
 
     React.useEffect(()=>{
-        if(location.pathname === '/movies'){
+        if(location.pathname === '/movies' && localStorage.searchRequest){
             setRequest(JSON.parse(localStorage.searchRequest).request)
             setCheckboxStatus(JSON.parse(localStorage.searchRequest).checkBox)
         }

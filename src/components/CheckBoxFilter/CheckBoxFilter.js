@@ -7,7 +7,7 @@ export default function CheckBoxFilter(props) {
             <label className='checkbox__label'>
                 <input
                     type='checkbox'
-                    checked={props.checkboxStatus}
+                    checked={props.checkboxStatus || false}
                     onChange={props.onChangeCheckbox} />
                 <span className='checkbox__slider'></span>
             </label>

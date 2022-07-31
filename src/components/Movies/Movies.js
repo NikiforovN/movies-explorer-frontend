@@ -5,6 +5,7 @@ import SearchForm from '../SearchForm/SearchForm'
 import Preloader from '../Preloader/Preloader/Preloader'
 import './Movies.css'
 import { api } from '../../utils/MainApi'
+import { useLocation } from 'react-router-dom'
 
 export default function Movies(props) {
   const [isMoviesLoading, setIsMoviesLoading] = React.useState(false)
@@ -14,19 +15,28 @@ export default function Movies(props) {
   const [savedMovies, setSavedMovies] = React.useState([])
   const [stepToRender, setStepToRender] = React.useState()
 
+  const location = useLocation()
+
   React.useEffect(() => {
     setMovies([]);
     setRenderedMovies([]);
   }, []);
 
   React.useEffect(() => {
+    if (location.pathname === '/movies') {
+      setMovies(JSON.parse(localStorage.filteredMovies))
+      renderMovies()
+    }
+  }, [location.pathname])
+
+  React.useEffect(() => {
     window.addEventListener("resize", updateWindowWidth);
     return () => window.removeEventListener("resize", updateWindowWidth);
-  },[windowWidth])
+  }, [windowWidth])
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     getSavedMovies()
-  },[movies])
+  }, [movies])
 
   React.useEffect(() => {
     renderMovies()
@@ -36,11 +46,11 @@ export default function Movies(props) {
     setWindowWidth(window.innerWidth);
   }
 
-  const filterMovies = (unfilteredMovie) => {
+  const filterMovies = (unfilteredMovies) => {
     const searchRequestData = JSON.parse(localStorage.searchRequest);
     const checkBoxState = searchRequestData.checkBox;
     const request = searchRequestData.request;
-    return unfilteredMovie.filter(movie => {
+    return unfilteredMovies.filter(movie => {
       if (checkBoxState === true) {
         return movie.duration <= 40 && movie.nameRU.toLowerCase().includes(request.toLowerCase());
       } else {
@@ -71,9 +81,10 @@ export default function Movies(props) {
   }
 
   const handleSearchSubmit = (moviesFromApi) => {
-    const movies = filterMovies(moviesFromApi);
+    const filteredMovies = filterMovies(moviesFromApi);
     setRenderedMovies([]);
-    setMovies(movies);
+    setMovies(filteredMovies);
+    localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies))
   }
 
   const getSavedMovies = () => {
@@ -127,8 +138,8 @@ export default function Movies(props) {
           </>
       }
       {
-      renderedMovies.length === 0 && !isMoviesLoading &&
-      <p className='movies__not-found'>К сожалению фильмов нет:(</p>
+        renderedMovies.length === 0 && !isMoviesLoading &&
+        <p className='movies__not-found'>К сожалению фильмов нет:(</p>
       }
     </section>
   )

@@ -31,35 +31,17 @@ function App() {
   const history = useHistory()
   const location = useLocation()
 
-  /*   React.useEffect(() => {
-      tokenCheck();
-    }, []); */
 
   React.useEffect(() => {
     tokenCheck();
   }, [isLoggedIn]);
 
-  console.log(isLoggedIn)
 
   React.useEffect(() => {
     getInitialMovies();
   }, [])
 
-  /*   React.useEffect(() => {
-      if (isLoggedIn) {
-        Promise.all([api.getProfile()])
-          .then(([userData]) => {
-            setCurrentUser(userData);
-  
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-        return;
-      }
-    }, [isLoggedIn]);
-   */
-
+ 
   function toggleBurgerMenu() {
     setIsMenuOpen(!isMenuOpen)
   }

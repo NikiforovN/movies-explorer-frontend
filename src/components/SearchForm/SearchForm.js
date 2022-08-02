@@ -11,21 +11,15 @@ export default function SearchForm(props) {
     const [request, setRequest] = React.useState('')
     const [disabled, setDisabled] = React.useState(false)
 
-    console.log()
-
     const location = useLocation()
-
-
 
     React.useEffect(() => {
         if (location.pathname === '/movies' && localStorage.searchRequest) {
             const search = JSON.parse(localStorage.searchRequest).request
-            console.log(search)
 
             if (search) {
                 setRequest(search);
                 setIsValid(true)
-
             }
         }
     }, [location.pathname])
@@ -44,7 +38,7 @@ export default function SearchForm(props) {
     function handleSubmit(event) {
         event.preventDefault()
         if (location.pathname === '/movies') {
-                props.setIsMoviesLoading(true)
+            props.setIsMoviesLoading(true)
             const initialMovies = JSON.parse(localStorage.getItem('initialMovies'));
 
             if (!initialMovies) {
@@ -57,22 +51,6 @@ export default function SearchForm(props) {
                 }));
                 props.onSubmit(initialMovies)
             }
-            /* props.setIsMoviesLoading(true)
-            moviesApi.getMovies()
-                .then((moviesFromApi) => {
-                    localStorage.setItem('searchRequest', JSON.stringify({
-                        checkBox: checkboxStatus,
-                        request: values.movie,
-                        movies: moviesFromApi,
-                    }));
-                    props.onSubmit(moviesFromApi)
-                })
-                .catch((err) => console.log(err))
-                .finally(() => props.setIsMoviesLoading(false)) */
-
-
-
-
         }
         if (location.pathname === '/saved-movies') {
             props.onSubmit(values.movie, checkboxStatus)
@@ -82,14 +60,6 @@ export default function SearchForm(props) {
     function handleChangeCheckboxStatus(event) {
         setCheckboxStatus(event.target.checked)
     }
-
-    /*     function handleCheckValidityForm(e) {
-            console.log(request === values.movie)
-            if (previousRequest === values.movie) {
-                setIsValid(true)
-                setDisabled(false)
-            }
-        } */
 
     return (
         <div className='search-form'>

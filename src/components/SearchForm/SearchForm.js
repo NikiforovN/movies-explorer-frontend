@@ -41,16 +41,11 @@ export default function SearchForm(props) {
             props.setIsMoviesLoading(true)
             const initialMovies = JSON.parse(localStorage.getItem('initialMovies'));
 
-            if (!initialMovies) {
-                props.getInitialMovies()
-            }
-            else {
-                localStorage.setItem('searchRequest', JSON.stringify({
+            localStorage.setItem('searchRequest', JSON.stringify({
                     checkBox: checkboxStatus,
                     request: values.movie
                 }));
                 props.onSubmit(initialMovies)
-            }
         }
         if (location.pathname === '/saved-movies') {
             props.onSubmit(values.movie, checkboxStatus)

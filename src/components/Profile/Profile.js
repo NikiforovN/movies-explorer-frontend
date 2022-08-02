@@ -5,6 +5,7 @@ import './Profile.css'
 
 export default function Profile(props) {
     const currentUser = React.useContext(CurrentUser)
+    const [userState, setUserState] = React.useState()
 
     const { values, setValues, handleChange, setIsValid, errors, setErrors, isValid } = useFormWithValidation()
 
@@ -13,10 +14,11 @@ export default function Profile(props) {
             name: currentUser.name,
             email: currentUser.email
         })
-    }, [currentUser])
+        setUserState(currentUser)
+    }, [currentUser, setValues])
 
     const handleInputChange = (event) => {
-        if (event.target.value === currentUser.name || event.target.value === currentUser.email) {
+        if (event.target.value === currentUser.name || event.target.value === currentUser.email || event.target.value === userState.name ) {
             setIsValid(false)
             setErrors({
                 [event.target.name]: 'Данные должны отличаться от текущих'
@@ -27,10 +29,12 @@ export default function Profile(props) {
         }
     }
 
+    console.log(values)
 
     const handleSubmit = (event) => {
         event.preventDefault()
         props.handleSubmit(values)
+        setIsValid(false)
     }
 
     return (

@@ -39,6 +39,7 @@ export default function Form(props) {
                         className='form__input'
                         name='email'
                         placeholder='Введите email'
+                        pattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
                         required
                         onChange={handleChange}
                     />
@@ -68,6 +69,7 @@ export default function Form(props) {
                         className='form__input'
                         name='email'
                         placeholder='Введите email'
+                        pattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
                         required
                         onChange={handleChange}
                     />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from '../Header/Header'
 import Main from '../Main/Main';
@@ -12,6 +12,7 @@ import Menu from '../Menu/Menu';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { api } from '../../utils/MainApi';
+import { moviesApi } from '../../utils/MoviesApi'
 import { CurrentUser } from '../../context/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
@@ -28,28 +29,36 @@ function App() {
   const [isSignUpError, setIsSignUpError] = React.useState()
 
   const history = useHistory()
+  const location = useLocation()
+
+  /*   React.useEffect(() => {
+      tokenCheck();
+    }, []); */
 
   React.useEffect(() => {
     tokenCheck();
   }, [isLoggedIn]);
 
+  console.log(isLoggedIn)
 
   React.useEffect(() => {
-    if (isLoggedIn) {
-      Promise.all([api.getProfile(), tokenCheck()])
-        .then(([userData]) => {
-          setCurrentUser(userData);
+    getInitialMovies();
+  }, [])
 
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      history.push('/movies');
-      return;
-    }
-    history.push('/')
-  }, [isLoggedIn]);
-
+  /*   React.useEffect(() => {
+      if (isLoggedIn) {
+        Promise.all([api.getProfile()])
+          .then(([userData]) => {
+            setCurrentUser(userData);
+  
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+        return;
+      }
+    }, [isLoggedIn]);
+   */
 
   function toggleBurgerMenu() {
     setIsMenuOpen(!isMenuOpen)
@@ -72,15 +81,25 @@ function App() {
         }
         localStorage.setItem('jwt', res.token);
         setIsLoggedIn(true)
-        history.push('/profile')
+        history.push('/movies')
         setIsSignInError(false)
       })
       .catch(() => setIsSignInError(true))
   }
 
   function tokenCheck() {
-    if (localStorage.getItem("jwt")) {
-      setIsLoggedIn(true)
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      ;
+      api.getProfile()
+        .then((res) => {
+          if (res) {
+            setIsLoggedIn(true);
+            setCurrentUser(res);
+            history.push(location);
+          }
+        })
+        .catch((err) => console.log(err))
     }
   }
 
@@ -92,12 +111,21 @@ function App() {
   }
 
   function handleEditProfile(user) {
+    console.log('current', currentUser, 'newUser', user)
     api.editProfile(user)
       .then((newUserData) => {
         setCurrentUser(newUserData)
       })
+      .catch(err => console.log(err))
   }
 
+  function getInitialMovies() {
+    moviesApi.getMovies()
+      .then((moviesFromApi) => {
+        localStorage.setItem('initialMovies', JSON.stringify(moviesFromApi));
+      })
+      .catch((err) => console.log(err))
+  }
 
   return (
     <section className='app'>
@@ -125,20 +153,18 @@ function App() {
             <SignIn handleSubmit={handleLogin} isError={isSignInError} />
           </Route>
 
-          <ProtectedRoute path="/" isLoggedIn={isLoggedIn}>
-            <Route path='/profile'>
-              <Profile isMenuOpen={isMenuOpen} handleSignOut={handleSignOut} handleSubmit={handleEditProfile} />
-            </Route>
+          <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn}>
+            <Profile isMenuOpen={isMenuOpen} handleSignOut={handleSignOut} handleSubmit={handleEditProfile} />
+          </ProtectedRoute>
 
-            <Route path='/movies'>
-              <Movies isLoggedIn={isLoggedIn} />
-              <Footer />
-            </Route>
+          <ProtectedRoute path="/movies" isLoggedIn={isLoggedIn}>
+            <Movies isLoggedIn={isLoggedIn} getInitialMovies={getInitialMovies}/>
+            <Footer />
+          </ProtectedRoute>
 
-            <Route path='/saved-movies'>
-              <SavedMovies />
-              <Footer />
-            </Route>
+          <ProtectedRoute path="/saved-movies" isLoggedIn={isLoggedIn}>
+            <SavedMovies />
+            <Footer />
           </ProtectedRoute>
 
           <Route path='*'>

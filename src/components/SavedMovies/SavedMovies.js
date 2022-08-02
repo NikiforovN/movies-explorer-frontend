@@ -56,7 +56,6 @@ export default function SavedMovies(props) {
           (c) => c._id !== deletedCard._id
         );
         setSavedMovies(cardsAfterDelete);
-
       })
       .catch((err) => {
         console.log(err.ok);
@@ -66,10 +65,8 @@ export default function SavedMovies(props) {
 
   function handleSubmit(request, checkBox) {
     setRequest(request)
-    console.log(request, checkBox)
     const filteredMovies = filterMovies(initialMovies, request, checkBox);
-    setSavedMovies(filteredMovies);
-    console.log(filteredMovies)
+    setSavedMovies(filteredMovies)
   }
 
 

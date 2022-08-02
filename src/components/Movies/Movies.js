@@ -36,7 +36,7 @@ export default function Movies(props) {
 
   React.useEffect(() => {
     getSavedMovies()
-  }, [movies])
+  }, [])
 
   React.useEffect(() => {
     renderMovies()
@@ -81,6 +81,9 @@ export default function Movies(props) {
   }
 
   const handleSearchSubmit = (moviesFromApi) => {
+    setTimeout(() => {
+      setIsMoviesLoading(false)
+    }, 1000)
     const filteredMovies = filterMovies(moviesFromApi);
     setRenderedMovies([]);
     setMovies(filteredMovies);
@@ -96,13 +99,13 @@ export default function Movies(props) {
   }
 
   const handleMovieLike = (movie) => {
-    const isLiked = savedMovies.some(m => m.movieId === movie.id);
+    const isLiked = savedMovies.find(m => m.movieId === movie.id);
     const movieToDelete = savedMovies.find(m => m.movieId === movie.id)
     if (!isLiked) {
       api.addMovie(movie)
         .then(res => {
           if (res) {
-            getSavedMovies();
+            setSavedMovies([...savedMovies, res])
           }
         })
         .catch(err => {
@@ -112,7 +115,9 @@ export default function Movies(props) {
       api.deleteMovie(movieToDelete._id)
         .then(res => {
           if (res) {
-            getSavedMovies();
+            setSavedMovies(savedMovies.filter(movie => {
+              return movie._id !== movieToDelete._id
+            }))
           }
         })
         .catch(err => {
@@ -123,7 +128,7 @@ export default function Movies(props) {
 
   return (
     <section className='movies'>
-      <SearchForm onSubmit={handleSearchSubmit} setIsMoviesLoading={setIsMoviesLoading} />
+      <SearchForm onSubmit={handleSearchSubmit} setIsMoviesLoading={setIsMoviesLoading} getInitialMovies={props.getInitialMovies} />
       {
         isMoviesLoading ?
           <Preloader />

@@ -4,7 +4,7 @@ import Form from '../Form/Form'
 import './SignUp.css'
 import logo from '../../images/header__logo.svg'
 
-export default function SignUp() {
+export default function SignUp(props) {
     return (
         <section className='signup'>
             <div className='signup__container'>
@@ -12,7 +12,10 @@ export default function SignUp() {
                     <img src={logo} alt='Логотип' />
                 </Link>
                 <h1 className='signup__title'>Добро пожаловать!</h1>
-                <Form />
+                <Form handleSubmit={props.handleSubmit} />
+                {
+                    props.isError && <p className='signup__error'>Упс! Что-то пошло не так</p>
+                }
                 <div className='signup__box'>
                     <p className='signup__text'>Уже зарегистрированы?</p>
                     <Link className='signup__link' to='/signin'>

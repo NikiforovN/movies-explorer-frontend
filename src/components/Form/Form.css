@@ -53,6 +53,10 @@
   opacity: 0.5;
 }
 
+.form__submit-button-disabled {
+  opacity: 0.2;
+}
+
 .form__input-error {
   margin: 10px 0 0;
   font-weight: 400;

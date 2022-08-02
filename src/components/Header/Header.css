@@ -22,6 +22,7 @@
   gap: 50px;
 }
 
+
 .header__background_profile {
   background: #fff;
 }
@@ -38,7 +39,7 @@
   .header {
     padding: 18px 30px;
   }
-  .header__container{
+  .header__container-none{
     display: none;
   }
   .header__navbar{
